@@ -15,7 +15,7 @@ migrate.init_app(app, db, compare_type=True)
 # from .routes.competition_bp import class_bp
 # from .routes.enrollment_bp import enrollment_bp
 from .routes.api_bp import api_bp
-app.register_blueprint(api_bp, url_prefix='/')
+app.register_blueprint(api_bp, url_prefix='/api')
 
 
 

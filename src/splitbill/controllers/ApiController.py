@@ -15,14 +15,15 @@ class ApiController():
         data = request.get_json()
         message = data['message']
         message = message.split(',')
-        cost = message[0]
+        cost = int(message[0])
         people = message[1:]
         avg_cost = cost / len(people)
         for person in people:
-            
+            user = User.query.filter(User.id == person).first()
+            user.to_pay += avg_cost
+            db.session.commit()
         
-        # .....
-        # return jsonify({
-        #         "message": str(e)
-                # "next": "endpoint for the next api and bid"
-        #     }), 400
+        return jsonify({
+                "message": "Costs added successfully",
+                "next": "endpoint for the next api and bid"
+            }), 200
