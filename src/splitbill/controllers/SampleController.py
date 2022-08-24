@@ -116,9 +116,9 @@
 #                 }
 #             }), 200
 #         except Exception as e:
-#             return jsonify({
-#                 "message": str(e)
-#             }), 400
+            # return jsonify({
+            #     "message": str(e)
+            # }), 400
     
 #     def getHousehold():
 #         try:
