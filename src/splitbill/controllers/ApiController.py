@@ -13,6 +13,7 @@ class ApiController():
     # message -> Cost of food and id of who ate
     def two():
         data = request.get_json()
+        # bid = request.args.get('bid')
         message = data['message']
         message = message.split(',')
         cost = int(message[0])
@@ -23,7 +24,8 @@ class ApiController():
             user.to_pay += avg_cost
             db.session.commit()
         
+
         return jsonify({
                 "message": "Costs added successfully",
-                "next": "endpoint for the next api and bid"
+                "next": ""
             }), 200
